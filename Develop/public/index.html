@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="manifest" href="manifest.webmanifest" />
 
-    <title>Budget Tracker</title>
+    <title>Goldilocks | A Budget Tracker With PWA Functionality</title>
   </head>
   <body>
     <div class="wrapper">
+      <h3>Goldilocks Budget Tracker</h3>
       <div class="total">
         <div class="total">Your total is: $<span id="total">0</span></div>
       </div>
@@ -56,5 +57,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="index.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('service-worker.js').then((reg) => {
+            console.log('We found your service worker file!', reg);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
