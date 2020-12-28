@@ -1,6 +1,8 @@
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
+  '/index.js',
+  '/api/transaction',
   '/styles.css',
   '/manifest.webmanifest',
   '/icons/icon-192x192.png',
@@ -42,7 +44,7 @@ self.addEventListener('activate', function (evt) {
 // fetch
 self.addEventListener('fetch', function (evt) {
   // cache successful requests to the API
-  if (evt.request.url.includes('/api/')) {
+  if (evt.request.url.includes('/api/transation')) {
     evt.respondWith(
       caches
         .open(DATA_CACHE_NAME)
